@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply text-slate-900 antialiased;
+  background-color: #f8fafc;
+}
+
+@layer components {
+  .btn-primary {
+    @apply rounded-lg font-medium text-white transition-colors disabled:opacity-50;
+    background-color: #0047ff;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background-color: #0028a3;
+  }
+
+  .btn-secondary {
+    @apply rounded-lg font-medium transition-colors disabled:opacity-50;
+    border: 1px solid #b3ccff;
+    color: #0028a3;
+  }
+
+  .btn-secondary:hover:not(:disabled) {
+    background-color: #eef4ff;
+  }
+
+  .card {
+    @apply rounded-xl bg-white;
+    border: 1px solid rgb(229 231 235 / 0.8);
+    box-shadow: 0 1px 3px 0 rgb(5 10 48 / 0.06), 0 1px 2px -1px rgb(5 10 48 / 0.06);
+  }
+
+  .page-title {
+    @apply text-2xl font-bold tracking-tight;
+    color: #0033cc;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-wide text-slate-500;
+  }
+
+  .badge-pill {
+    @apply text-xs px-2.5 py-0.5 rounded-full font-medium;
+  }
+
+  .tagline-pill {
+    @apply inline-flex items-center rounded-full px-4 py-1.5 text-xs font-medium text-white;
+    background-color: #050a30;
+    box-shadow: 0 0 20px rgb(0 224 255 / 0.15);
+    outline: 1px solid rgb(0 224 255 / 0.4);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast-enter {
+  animation: slide-in 0.3s ease-out;
+}
+
+@keyframes pulse-skeleton {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.skeleton {
+  animation: pulse-skeleton 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes rag-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .rag-pulse {
+    animation: rag-pulse 1.5s ease-in-out infinite;
+  }
+}
